@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main-container{
+             height: 100vh;
+             width: 100%;
+             background-color: black;
+             color: white;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             flex-direction: column;
+        }
+        .box{
+            height: 200px;
+            width: 50%;
+            background-color: rgb(12, 12, 12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            box-shadow: 2px 4px 2px rgb(27, 27, 27);
+            color: white;
+        }
+        button{
+            height: 40px;
+            width: 40px;
+            background-color: rgb(37, 37, 37);
+            color: white;
+            font-size: 20px;
+            margin-top: 30px;
+            border: none;
+        }
+        h1{
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+        h1 em{
+            color: orange;
+            font-style: normal;
+        }
+
+        @media (max-width:480px) {
+            .main-container{
+                height: auto;
+                width: 100%;
+            }
+            .box{
+                font-size: 60px;
+                width: 80%;
+            }
+            h1{
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>DIGITAL <em>CLOCK</em> </h1>
+        <div class="box">
+           
+        </div>
+        <span>
+        <button id="btn"><i class="fa-solid fa-moon"></i></button>
+        <button id="btn2"><i class="fa-solid fa-sun"></i></button>
+    </span>
+
+    </div>
+    <script>
+        const box=document.querySelector('.box')
+        
+        
+         setInterval(()=>{
+            
+            let date= new Date().toLocaleTimeString()
+            box.textContent= date
+            
+         },1000)
+
+
+
+          const body =document.querySelector('body')
+         const button=document.getElementById('btn')
+         const button2=document.getElementById('btn2')
+
+         const content= document.querySelector('.main-container')
+         console.log(content)
+
+         button.addEventListener('click',theme)
+         button2.addEventListener('click',darktheme)
+         
+         function darktheme(){
+             content.style.backgroundColor='black'
+             content.style.color='white'
+            
+         }
+
+
+         function theme(){
+             content.style.backgroundColor='white'
+             content.style.color='black'
+            
+         }
+    </script>
+</body>
+</html>
